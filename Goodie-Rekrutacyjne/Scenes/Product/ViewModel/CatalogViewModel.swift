@@ -1,5 +1,5 @@
 //
-//  ShoppingListViewModel.swift
+//  CatalogViewModel.swift
 //  Goodie-Rekrutacyjne-iOS
 //
 //  Created by Aleksy Tylkowski on 19/03/2024.
@@ -8,7 +8,7 @@
 import RxSwift
 import RxCocoa
 
-final class ShoppingListViewModel: ViewModelProtocol {
+final class CatalogViewModel: ViewModelProtocol {
     struct Input {
         let onItemTap: Driver<CatalogProduct>
     }
@@ -23,7 +23,7 @@ final class ShoppingListViewModel: ViewModelProtocol {
         self.coreDataManager = coreDataManager
     }
 
-    func transform(input: Input) -> ShoppingListViewModel.Output {
+    func transform(input: Input) -> CatalogViewModel.Output {
         let addItemToBasket = input.onItemTap
             .map { product -> Void in
                 let context = self.coreDataManager.persistentContainer.viewContext

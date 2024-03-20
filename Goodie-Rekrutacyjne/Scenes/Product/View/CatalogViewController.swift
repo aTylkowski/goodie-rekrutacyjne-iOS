@@ -8,9 +8,9 @@
 import Foundation
 
 final class CatalogViewController: SwiftUIViewController<CatalogView> {
-    let viewModel: ShoppingListViewModel
+    let viewModel: CatalogViewModel
 
-    init(viewModel: ShoppingListViewModel) {
+    init(viewModel: CatalogViewModel) {
         self.viewModel = viewModel
         super.init()
     }
@@ -25,7 +25,7 @@ final class CatalogViewController: SwiftUIViewController<CatalogView> {
         bind(output.addItemToBasket)
     }
 
-    private func makeInput() -> ShoppingListViewModel.Input {
+    private func makeInput() -> CatalogViewModel.Input {
         return .init(onItemTap: contract.onItemTap.asDriver())
     }
 }

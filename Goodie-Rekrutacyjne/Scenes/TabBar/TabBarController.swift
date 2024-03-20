@@ -22,7 +22,7 @@ final class TabBarController: UITabBarController {
     }
 
     private func makeShoppingListViewController() -> CatalogViewController {
-        let viewModel = ShoppingListViewModel()
+        let viewModel = CatalogViewModel()
         return CatalogViewController(viewModel: viewModel)
     }
 
