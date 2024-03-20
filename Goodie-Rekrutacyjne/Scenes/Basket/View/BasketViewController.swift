@@ -25,7 +25,7 @@ final class BasketViewController: SwiftUIViewController<BasketView> {
         let input = makeInput()
         let output = viewModel.transform(input: input)
         bind(output.loadedProducts, to: \.items)
-        bind(output.deletedItem)
+        bind(output.deletedItem, to: \.items)
         bind(output.fetchedCurrencies, to: \.currency)
     }
 

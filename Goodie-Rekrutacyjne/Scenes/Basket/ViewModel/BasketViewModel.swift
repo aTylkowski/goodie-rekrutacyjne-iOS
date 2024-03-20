@@ -17,7 +17,7 @@ final class BasketViewModel: ViewModelProtocol {
     struct Output {
         let loadedProducts: Driver<[BasketProduct]>
         let fetchedCurrencies: Driver<USDCurrenciesResponse>
-        let deletedItem: Driver<Void>
+        let deletedItem: Driver<[BasketProduct]>
     }
 
     let coreDataManager: CoreDataManager
@@ -32,13 +32,7 @@ final class BasketViewModel: ViewModelProtocol {
     func transform(input: Input) -> BasketViewModel.Output {
         let loadedProducts = input.viewWillAppear
             .map {
-                return self.coreDataManager.fetchEntities()
-                    .compactMap { entity in
-                        if let product = CatalogProduct(fromName: entity.name ?? "") {
-                            return BasketProduct(product: product, currentPrice: nil)
-                        }
-                        return nil
-                    }
+                return self.fetchProductEntities()
             }
 
         let fetchedCurrencies = input.viewWillAppear
@@ -47,13 +41,24 @@ final class BasketViewModel: ViewModelProtocol {
             }
 
         let deletedItem = input.onDeleteItemTap
-            .map { index -> Void in
+            .map { index -> [BasketProduct] in
                 self.coreDataManager.deleteEntity(index: index)
-                return ()
+                return self.fetchProductEntities()
             }
+            .asDriver()
 
         return Output(loadedProducts: loadedProducts,
                       fetchedCurrencies: fetchedCurrencies,
                       deletedItem: deletedItem)
+    }
+
+    func fetchProductEntities() -> [BasketProduct] {
+        return self.coreDataManager.fetchEntities()
+            .compactMap { entity in
+                if let product = CatalogProduct(fromName: entity.name ?? "") {
+                    return BasketProduct(product: product, currentPrice: nil)
+                }
+                return nil
+            }
     }
 }
