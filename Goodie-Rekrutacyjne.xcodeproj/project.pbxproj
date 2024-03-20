@@ -171,7 +171,7 @@
 			path = Basket;
 			sourceTree = "<group>";
 		};
-		25F8F6092BAA29EB0043F30E /* Product */ = {
+		25F8F6092BAA29EB0043F30E /* Catalog */ = {
 			isa = PBXGroup;
 			children = (
 				25F8F62E2BAA49420043F30E /* Model */,
@@ -179,7 +179,7 @@
 				25F8F6302BAA49830043F30E /* ViewModel */,
 				25F8F6272BAA3E830043F30E /* CatalogViewContract.swift */,
 			);
-			path = Product;
+			path = Catalog;
 			sourceTree = "<group>";
 		};
 		25F8F60A2BAA29EB0043F30E /* Scenes */ = {
@@ -187,7 +187,7 @@
 			children = (
 				25F8F62B2BAA416E0043F30E /* TabBar */,
 				25F8F6012BAA29EB0043F30E /* Basket */,
-				25F8F6092BAA29EB0043F30E /* Product */,
+				25F8F6092BAA29EB0043F30E /* Catalog */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
