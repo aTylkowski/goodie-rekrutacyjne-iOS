@@ -13,4 +13,11 @@ public final class BasketViewContract: ViewContract {
     @Published public var onItemDeletion = Trigger<Int>()
 
     public init() {}
+
+    func updateItemsWithCurrency(_ currency: String, exchangeRate: Double) {
+        items = items.map { item in
+            let updatedPrice = item.product.initialPrice * exchangeRate
+            return BasketProduct(product: item.product, currentPrice: updatedPrice)
+        }
+    }
 }

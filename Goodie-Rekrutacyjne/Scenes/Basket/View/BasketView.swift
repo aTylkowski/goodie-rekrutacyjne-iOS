@@ -78,10 +78,7 @@ struct BasketView: RootView {
         for (currency, value) in contract.currency.quotes {
             let button = ActionSheet.Button.default(Text(currency)) {
                 selectedCurrency = currency.replacingOccurrences(of: Constants.usdString, with: "")
-                contract.items = contract.items.map {
-                    return BasketProduct(product: $0.product,
-                                         currentPrice: value * $0.product.initialPrice)
-                }
+                contract.updateItemsWithCurrency(currency, exchangeRate: value)
             }
             buttons.append(button)
         }
