@@ -1,5 +1,5 @@
 //
-//  Product.swift
+//  CatalogProduct.swift
 //  Goodie-Rekrutacyjne-iOS
 //
 //  Created by Aleksy Tylkowski on 19/03/2024.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-public enum Product {
+public enum CatalogProduct {
     case potato
     case eggs
     case milk
@@ -15,13 +15,13 @@ public enum Product {
 
     init?(fromName name: String) {
         switch name {
-        case Product.potato.name:
+        case CatalogProduct.potato.name:
             self = .potato
-        case Product.eggs.name:
+        case CatalogProduct.eggs.name:
             self = .eggs
-        case Product.milk.name:
+        case CatalogProduct.milk.name:
             self = .milk
-        case Product.banana.name:
+        case CatalogProduct.banana.name:
             self = .banana
         default:
             return nil
@@ -54,7 +54,7 @@ public enum Product {
         }
     }
 
-    var price: Double {
+    var initialPrice: Double {
         switch self {
         case .potato:
             0.95

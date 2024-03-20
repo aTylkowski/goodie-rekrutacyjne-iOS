@@ -8,7 +8,7 @@
 import SwiftUI
 
 public final class BasketViewContract: ViewContract {
-    @Published public var items = [Product]()
+    @Published public var items = [BasketProduct]()
     @Published public var currency: USDCurrenciesResponse = .empty
     @Published public var onItemDeletion = Trigger<Int>()
 

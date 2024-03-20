@@ -10,7 +10,7 @@ import RxCocoa
 
 final class ShoppingListViewModel: ViewModelProtocol {
     struct Input {
-        let onItemTap: Driver<Product>
+        let onItemTap: Driver<CatalogProduct>
     }
     
     struct Output {
@@ -29,7 +29,8 @@ final class ShoppingListViewModel: ViewModelProtocol {
                 let context = self.coreDataManager.persistentContainer.viewContext
                 let entity = ProductEntity(context: context)
                 entity.name = product.name
-                entity.price = product.price
+                entity.currentPrice = product.initialPrice
+                entity.initialPrice = product.initialPrice
                 self.coreDataManager.saveContext()
                 return ()
             }

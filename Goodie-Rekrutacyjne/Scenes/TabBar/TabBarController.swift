@@ -21,9 +21,9 @@ final class TabBarController: UITabBarController {
         viewControllers = [shoppingListViewController, basketViewController]
     }
 
-    private func makeShoppingListViewController() -> ShoppingListViewController {
+    private func makeShoppingListViewController() -> CatalogViewController {
         let viewModel = ShoppingListViewModel()
-        return ShoppingListViewController(viewModel: viewModel)
+        return CatalogViewController(viewModel: viewModel)
     }
 
     private func makeBasketViewController() -> BasketViewController {

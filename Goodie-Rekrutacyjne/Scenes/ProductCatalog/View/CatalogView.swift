@@ -1,5 +1,5 @@
 //
-//  ShoppingListView.swift
+//  CatalogView.swift
 //  Goodie-rekrutacyjne-iOS
 //
 //  Created by Aleksy Tylkowski on 19/03/2024.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ShoppingListView: RootView {
+struct CatalogView: RootView {
     private enum Constants {
         static let usdString = "$"
         static let xString = "x"
@@ -24,9 +24,9 @@ struct ShoppingListView: RootView {
     ]
 
     @State private var isShaking = false
-    private let contract: ShoppingListViewContract
+    private let contract: CatalogViewContract
 
-    public init(contract: ShoppingListViewContract) {
+    public init(contract: CatalogViewContract) {
         self.contract = contract
     }
 
@@ -50,7 +50,7 @@ struct ShoppingListView: RootView {
                             Text(item.name)
                                 .textStyle(.title)
                             HStack {
-                                Text(item.price.formattedString() + Constants.usdString)
+                                Text(item.initialPrice.formattedString() + Constants.usdString)
                                     .textStyle(.description)
                                 Text(Constants.xString)
                                     .textStyle(.description)
@@ -80,5 +80,5 @@ struct ShoppingListView: RootView {
 }
 
 #Preview {
-    ShoppingListView(contract: ShoppingListViewContract())
+    CatalogView(contract: CatalogViewContract())
 }
