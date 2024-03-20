@@ -60,7 +60,7 @@ struct ShoppingListView: RootView {
                             Spacer()
                         }
                     }
-                    .foregroundStyle(.mint)
+                    .foregroundStyle(Colors.element)
                     .rotationEffect(.degrees(isShaking ? Constants.shakeEndingAngle : Constants.shakeStartingAngle))
                 }
                 .frame(width: Constants.itemSide, height: Constants.itemSide)
